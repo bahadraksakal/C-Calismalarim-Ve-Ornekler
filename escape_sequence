@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()   //kacis karakterleri
+{
+    int a = 2, b =10, c =50 ;
+    float f = 1.05 , g = 25.5 , h = -0.1, yuzde;
+    printf("3 tamsayi   : %d %d %d\n",a,b,c);
+    printf("3 tamsayi [tab]   : %d  \t %d \t %d\n",a,b,c);  // %t =  tab kadar  bosluk birak not: tab tusu tab kadar bosluk birakir.
+    printf("3 reel sayi (yanyana) : %f %f %f\n",f,g,h);     // shift + tab tusu tab kadar geriye goturrr.
+    yuzde=219*25/100.0;  // eðer .0  yazmaz isem kesirli kýsmý kaybederim
+    printf("219'nin %%25'i %f'dir.\n",yuzde);
+    printf("%f/%f=%f imis\n",f,g,f/g);
+    printf("\a");
+    return 0;
+}
