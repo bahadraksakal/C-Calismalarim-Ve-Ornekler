@@ -3,49 +3,48 @@
 
 int main()
 {
-    int buyukluk = 1;
+    int a = 1;
     printf("istediginiz yildiniz buyuklugunu giriniz:\n");
-    scanf("%d",&buyukluk);
+    scanf("%d",&a);
     printf("\n\n\n");
-    int boslukAdediniBelirle = buyukluk/2,degisken0=1,degisken1=1,degisken2=1,degisken3=1;
-    int boslukSabiti = buyukluk/2;
-    int toplamYildizAdedi = 2;
-    int c =0,SimetridekiToplamYildizAdedi,u=1;
-    int simetrisiniNeredeBolecek=1;
+    int i = a/2,degisken0=1,degisken1=1,degisken2=1,degisken3=1,t;
+    int I = a/2;
+    int d = 2;
+    int c =0,l,u=1;
+    int k=1;
     int x,y=2;
-
-    for(;;)
+    t=a;
+    for(t;t>=0;t--)
     {
 
-            for(boslukAdediniBelirle;boslukAdediniBelirle>=0;boslukAdediniBelirle--)
+            for(i;i>=0;i--)
             {
                 printf(" ");
             }
             if(degisken0==1)
                 printf("/");
-            for(c=1;c<=toplamYildizAdedi;c++)
+            for(c=1;c<=d;c++)
                 printf("*");
             if (degisken2==1)
                 printf("\\");
-            printf("\n");
 
-        toplamYildizAdedi+=2;
-        boslukSabiti--;
-        boslukAdediniBelirle=boslukSabiti;
-        simetrisiniNeredeBolecek++;
-        y=boslukSabiti+2;
-
-        if(simetrisiniNeredeBolecek>buyukluk/2)
+        d+=2;
+        printf("\n");
+        I--;
+        i=I;
+        k++;
+        y=I+2;
+        if(k>a/2)
         {
-           for(simetrisiniNeredeBolecek;(simetrisiniNeredeBolecek > buyukluk/2 && simetrisiniNeredeBolecek<=buyukluk);simetrisiniNeredeBolecek++)
+           for(k;(k > a/2 && k<=a);k++)
             {
 
-                SimetridekiToplamYildizAdedi=c-u;
+                l=c-u;
                     for(x=0;x<y;x++)
                         printf(" ");
                     if(degisken1==1)
                         printf("\\");
-                    for(SimetridekiToplamYildizAdedi;SimetridekiToplamYildizAdedi>0;SimetridekiToplamYildizAdedi--)
+                    for(l;l>0;l--)
                        printf("*");
                     if(degisken3==1)
                         printf("/");
