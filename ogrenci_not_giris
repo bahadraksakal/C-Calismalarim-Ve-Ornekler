@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int ort,a=0,kacinciSinav=0; // 0. satir aliye // 1. satir ayseye // 2 .satir mehmete aittir.
+    printf("ogrencilerin notlarini giriniz\n");
+    int notlarMatrisi[3][4];// 4 tane not 3 tane ogrenci var.
+    for(int i=0;i<3;i++)
+    {
+
+        for(int j=0;j<4;j++){
+            printf("\n%d.ogrencinin %d. notunu giriniz:\t",i+1,j+1);
+            scanf("%d",&notlarMatrisi[i][j]);
+        }
+    }
+    printf("\n1. sorunun cevabi:\t%d\n\n",notlarMatrisi[0][0]+notlarMatrisi[1][1]+notlarMatrisi[2][2]); // 1. ogrencinin 1. notu + 2. ogrencinin 2. notu....
+    for (int i=0;i<4;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            a+=notlarMatrisi[j][i];
+        }
+        kacinciSinav++;
+        ort=a/3;
+        printf("%d. sinavin ortalamasi:\t%d\n",kacinciSinav,ort);
+        a=0;
+    }
+
+    return 0;
+}
