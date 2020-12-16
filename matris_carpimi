@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a,j,T=0;
+    int matris_a[4][3]={1,2,3,4,
+                        2,3,4,
+                        9,8,7,6};
+    int matris_b [3][6]={1,2,8,8,4,6,
+                         2,6,2,1,4,9,
+                         9,1,2,3,4,5};
+    int matris_sonuc[4][6];   /* matris_a[0][0] * matris_b[0][0] +
+                                 matris_a[0][1]* matris_b[1][0] +
+                                 matris_a[0][3]* matrisb[2][0] +
+                                    = matris_sonuc[0][0];*/
+     /*for(a=0;a<4;a++)
+    {
+        for(j=0;j<6;j++)
+        {
+            matris_sonuc[a][j]=0;
+            for(int i=0;i<3;i++)
+            {
+                matris_sonuc[a][j] += matris_a[a][i]*matris_b[i][j];
+            }
+        }
+    }*/
+    for(a=0;a<4;a++)
+    {
+        for(j=0;j<6;j++)
+        {
+            for(int i=0;i<3;i++)
+            {
+                T+=matris_a[a][i]*matris_b[i][j];
+            }
+            matris_sonuc[a][j]=T;
+            T=0;
+        }
+
+
+    }
+    for(a=0;a<4;a++)
+    {
+        if(a==0)
+        {
+            printf("{\n");
+        }
+        for(j=0;j<6;j++)
+        {
+            printf("%d,",matris_sonuc[a][j]);
+        }
+
+        printf("\n");
+        if(a==3)
+            printf("}\n");
+    }
+    return 0;
+}
