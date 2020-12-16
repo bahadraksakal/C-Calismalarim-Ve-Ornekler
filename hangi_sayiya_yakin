@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi1,sayi2,sayi3,a=0,b=0;
+
+    printf("bir sayi giriniz\n");  // mutlak deger almak icin abs  fonksiyonu kullanýlýr
+    scanf("%d",&sayi1);
+    printf("iki sayi giriniz ilk girdiginiz sayinin bu sayilardan hangisine daha yakin oldugunu program hesaplayacak\n");
+    scanf("%d",&sayi2);
+    scanf("%d",&sayi3);
+
+    if(abs(sayi1-sayi2) > abs(sayi1-sayi3))
+    {
+        printf("girdiginiz %d sayisi, 3. girdiginiz %d sayisina daha yakindir\n",sayi1,sayi3);
+    }
+    else if (abs(sayi1-sayi3)> abs(sayi1-sayi2))
+    {
+        printf("girdiginiz %d sayisi, 2. girdiginiz %d sayisina daha yakindir\n",sayi1,sayi2);
+    }
+    else
+        printf("girdiginiz %d sayisi girdiginiz 3. ve 2. sayilara esit uzakliktadir\n",sayi1);
+
+    // peki abs fonkisyonunu bilemseydim
+
+    /*if(sayi1-sayi2>=0)
+        a=sayi1-sayi2;
+    else
+        a=(sayi1-sayi2)*-1;
+    if(sayi1-sayi3>=0)
+        b=sayi1-sayi3;
+    else
+        b=(sayi1-sayi3)*-1;
+
+
+        if(a > b)
+        {
+            printf("girdiginiz %d sayisi, 3. girdiginiz %d sayisina daha yakindir\n",sayi1,sayi3);
+        }
+        else if (b>a)
+        {
+            printf("girdiginiz %d sayisi, 2. girdiginiz %d sayisina daha yakindir\n",sayi1,sayi2);
+        }
+        else
+            printf("girdiginiz %d sayisi girdiginiz 3. ve 2. sayilara esit uzakliktadir\n",sayi1);  */
+    return;
+}
