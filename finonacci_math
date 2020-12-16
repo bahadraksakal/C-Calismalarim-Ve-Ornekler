@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <math.h>
+
+int main()  // sqrt(sayi)   fonksiyonu ile kare kök alýnýr
+{
+    double b=0,n=0; // pow(sayi,us) = sayi**us
+
+
+    for(n=0;n<200;n++)
+    {
+        b=(pow((1+sqrt(5))/2,n)-pow((1-sqrt(5))/2,n))/sqrt(5);
+        printf("%.0lf\n",b);
+        Sleep(100);
+
+    }
+    return 0;
+}
