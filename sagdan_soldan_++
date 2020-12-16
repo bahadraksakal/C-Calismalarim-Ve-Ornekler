@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x = 5;
+    printf("%d\n",x); // x i oku  x =5
+    printf("%d\n",x++);// x i oku sonra bir arttýr //x i okur x=5  ve daha sonra x i artirir x=6
+    printf("%d\n",++x); // bir onceki adimda x bir artmis idi bu adimda bir arttir sonra oku dedik. x= 6 +1 =7
+    return 0;
+}
