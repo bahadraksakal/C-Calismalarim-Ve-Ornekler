@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+
+int main()
+{
+    char harf='a';
+    char sonharf='z';
+    for(harf;harf<=sonharf;harf++)  //ASCII ilede yapýlabilir.
+    {
+        printf("ASCII:  %d  /kucuk harf: %c\n",harf,harf);// a=97 , z =122. A=65  Z=90
+        if(harf=='z')
+        {
+            harf='A';
+               while(1)
+               {
+
+                    printf("ASCII:  %d  /buyuk harf: %c\n",harf,harf);
+                    if(harf=='Z')
+                        break;
+                    harf++;
+
+               }
+            break;
+        }
+
+
+    }
+
+    return 0;
+}
