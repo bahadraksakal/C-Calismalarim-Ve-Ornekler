@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a = 0;// a ya gore b nin degeri ne olur ?
+    int b;
+    if(a <0)
+        b=1;
+    else if (a==0)
+        b=2;
+    else
+        b=3;
+
+    b= (a<0)?1: (a==0)?2 : 3 ; // ternary operator "?" ini if gibi dusunup ona gore davranir // deger atama islemlerinde kullanırlır.
+
+    printf("b:  %d",b);
+    return 0;
+}
