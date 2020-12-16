@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+int main()
+{
+    char start[5] = "start";
+    printf("programi baslatmak icin start yaziniz!\n");
+    scanf("%s",&start);
+    printf("zaman hh/mm seklindedir\n");
+    /*for(int a=0;a<10;a++)
+    {
+
+        for(int b=0;b<10;b++) // önce içerdeki iþlem yapýlýr sonra deger arttýlýr bilgisi önemli.
+        {
+
+            for(int c=0;c<10;c++)
+            {
+
+
+                for(int d=0;d<10;d++)
+                {
+
+                    for(int e=0;e<10;e++)
+                    {
+
+                        for(int f=0;f<10;f++)
+                        {
+                            printf("%d%d:%d%d:%d%d\r",a,b,c,d,e,f);
+                            Sleep(1000); //  5 saniye bekletmek istiyorsak 5 * 1000 yapýlýr.
+                        }
+                    }
+                }
+            }
+        }
+    }   */
+
+    // OR
+    for (int a=0;a<60;a++)
+        for(int b=0;b<60;b++)
+        {
+            printf("%02d:%02d\r",a,b);
+            Sleep(1000);
+        }
+
+    return 0;
+}
