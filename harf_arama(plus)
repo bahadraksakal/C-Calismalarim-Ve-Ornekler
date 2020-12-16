@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int matris [4][3];
+    float toplam,ort;
+    srand(time(0));
+    printf("-----RANDOM MATRIS-----\n\n");
+    for(int i=0;i<4;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            matris[i][j]=rand()%79+20;
+            printf("%d,",matris[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+    for(int a=0;a<4;a++)
+    {
+        for(int b=0;b<3;b++)
+        {
+            toplam+=matris[a][b];
+        }
+        ort=toplam/3;
+        printf("%d. satirin ortalamasi= %.2f\n",a,ort);
+        toplam=0.0;
+    }
+    printf("\n\n");
+      for(int a=0;a<3;a++)
+    {
+        for(int b=0;b<4;b++)
+        {
+            toplam+=matris[a][b];
+        }
+        ort=toplam/4;
+        printf("%d. sutunun ortalamasi= %.2f\n",a,ort);
+        toplam=0.0;
+    }
