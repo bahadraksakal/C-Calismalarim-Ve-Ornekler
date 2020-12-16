@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi;
+    printf("bir sayi giriniz:");
+    scanf("%d",&sayi);
+
+    if (sayi <= 10)
+        printf("sayi 10 dan kucuk");
+    else if (sayi <=50 && sayi > 10)
+        printf("sayi 10 dan buyuk ve 50 den kucuk");
+    else
+        printf("sayi 50 den buyuk");
+    return 0;
+}
