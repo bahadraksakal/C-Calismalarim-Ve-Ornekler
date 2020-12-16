@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int b,c=3,d = -4;
+    /*switch (c){
+     case 1:
+     case 2:
+        b=5
+        break;
+     case 3:
+        if(d>0)                         ------------> ifadesini ternary ile ifade ediniz.  // önce ifli yapiya cevrilir.
+            b=6
+        else
+            b=7
+        break;
+     default:
+        b = 8*/
+    /*if (c==1 || c ==2)        ----------> yapıyı if'li hale getirdik simdi daha rahat yazabiliriz.
+        b = 5;
+    else if (c == 3)
+    {
+        if (d>0)
+         b=6;
+        else
+         b=7;
+    }
+    else
+        b=8;  */
+
+    b=(c==1 || c==2)?5:(c==3)?(d>0)?6:7:8;   //b= (c==1 || c==2)?5: (c==3 && d>0)? 6:(c==3 && d<=0)?7:8;
+    printf("b nin degeri %d",b);     //6 degilse ;7 ' dir //en bastaki if'e girmedigim icin son else 8
+    return 0;
+    //a
+}
