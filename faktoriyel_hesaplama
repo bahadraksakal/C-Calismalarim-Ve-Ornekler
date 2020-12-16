@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi,i,carpim=1;
+    printf("bir tam sayi giriniz\n");
+    scanf("%d",&sayi);
+    for(i=1;i<=sayi;i++)
+    {
+        carpim*=i;
+
+    }
+    printf("%d sayisinin faktoriyeli = %d\n",sayi,carpim);
+
+    return 0;
+}
