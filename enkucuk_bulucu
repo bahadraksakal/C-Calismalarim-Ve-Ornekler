@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 30  // N in degeri 30 olsun.
+#include <limits.h>
+
+int main()
+{
+    int dizi[N];
+    int enkucuk=INT_MAX;
+    int kucukIndis=0;
+    int buyukInsis=0;
+    int enbuyuk=INT_MIN;
+    srand(time(0));
+    for(int i=0;i<N;i++)
+    {
+        dizi[i]=rand();
+        printf("%d,",dizi[i]);
+    }
+    printf("\n\n\n");
+    for(int i=0;i<N;i++)
+    {
+        if(dizi[i]<enkucuk){
+            enkucuk=dizi[i];
+            kucukIndis=i;
+        }
+        if(dizi[i]>enbuyuk){
+            enbuyuk=dizi[i];
+            buyukInsis=i;
+        }
+    }
+    printf("dizinin en buyuk elemani [%d] indisli %d'dir\ndizinin en kucuk elemani [%d] indisli %d'dir\n",buyukInsis,enbuyuk,kucukIndis,enkucuk);
+    return 0;
+}
