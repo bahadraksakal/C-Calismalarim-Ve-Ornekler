@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+
+int main()
+{
+    char sirasiz[6][60]; // 29 indisli karakter = '\0'
+    char sirasiz_0[6][60];
+    char sirali[6][60];
+    int sonuc=0,i,a,k,b;    // yapamadým.
+
+    for(i=0;i<6;i++)
+    {
+        gets(sirasiz[i]) ; // otomatik olarak en sona '\0' koyar ve dizi orda sinirlanir.
+
+    }
+    for(i=0;i<6;i++)
+    {
+        for(int j=0;sirasiz[i][j];j++)
+        {
+           printf("%c-",sirasiz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+    for(a=0;a<6;a++)
+    {
+        b=a;
+        for(i=0;i<6;i++)
+        {
+            sonuc=strcmp(sirasiz[b],sirasiz[i]);
+            if(sonuc<0)
+                continue;
+            else
+            {
+              b++;
+              i=0;
+            }
+
+
+        }
+        if(i==7)
+        {
+            for(k=0;sirasiz[a][k];k++)
+              sirali[a][k]=sirasiz[a][k];
+            sirali[a][k+1]=sirasiz[a][k+1];
+        }
+    }
+
+    for(i=0;i<6;i++)
+    {
+        for(int j=0;sirali[i][j];j++)
+        {
+           printf("%c-",sirali[i][j]);
+        }
+        printf("\n");
+    }
+
+
+
+    return 0;
+}
