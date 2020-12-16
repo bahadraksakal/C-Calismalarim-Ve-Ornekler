@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    system("COLOR D");
+    int sayi,i=1,carpim=1;
+    printf("bir tam sayi giriniz\n");
+    scanf("%d",&sayi);
+    while(i<=sayi)
+    {
+        // i++ üstte tanýmlarsak program 6 faktoriyeli bulacaðýna 7 faktoriyeli hesaplar.
+        i++;
+        carpim*=(i-1);
+        //i++;
+
+    }
+    printf("%d sayisinin faktoriyeli = %d\n",sayi,carpim);
+    return 0;
+}
