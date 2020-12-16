@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int ay;
+    int gun;
+    printf("1 ila 12 arasinda aylari temsilen bir deger giriniz\n");
+    scanf("%d",&ay);
+    if(1<=ay && ay<=12){
+     switch(ay) {  // swtich case yapilarinda  "her caseden sonra :" konur, "breaklerden sonra ; " konur , " en son default : " kullanýlýr.
+          gun = 28;  // switch case yapilarinda "{suslu parantez}"  ac kapa islemi yapilmalidir.
+          break;
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        gun = 30;
+        break;
+      default:
+        gun =31;
+        break;
+
+        }
+    }
+     else
+       printf("\ngirdiginiz sayi belirtilen aralikta degil!\n");
+
+   printf("girdiginiz ay %d ceker",gun); // okuma iþleminde okunacak sayi %d nin oldugu yere yazilir
+    return 0;
+}
