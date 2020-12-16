@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi,i,sayi2;
+
+    printf("programi kapatmak icin 0 giriniz\n");  // break döngü sonlandýrýr.
+    do
+    {
+        printf("birinci sayiyi giriniz:\n");
+        scanf("%d",&sayi);
+
+
+        for (i=2;i<sayi;i++)
+        {
+            if (sayi % i == 0)
+                break;
+        }
+        if (sayi == i)
+            printf("asal sayi girdiniz !!!\n");
+        else
+            printf("asal sayi degildir\n");
+    }while (sayi!=0);
+
+    return 0;
+}
