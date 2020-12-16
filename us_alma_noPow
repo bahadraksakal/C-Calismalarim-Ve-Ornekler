@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double us_al(double sayi,double us);
+int main()
+{
+    double taban,kuvvet,sonuc;
+    printf("kuvvetini almak istediginiz sayiyi giriniz:\n");
+    scanf("%lf",&taban);
+    printf("kacinci kuvvetini almak istediginizi giriniz:\n");
+    scanf("%lf",&kuvvet);
+    sonuc=us_al(taban,kuvvet);
+    printf("\n islem sonucunuz = %.3lf",sonuc);
+
+    return 0;
+}
+double us_al(double sayi,double us)
+{
+    double sonuc=1.0;
+    for(int i=0;i<us;i++)
+    {
+        sonuc*=sayi;
+    }
+    return sonuc;
+}
