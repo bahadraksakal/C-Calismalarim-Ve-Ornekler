@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+long int fibo(int x);
+int main()
+{
+    int n;
+    long int sonuc;
+    printf("fibonaccinin kacinci elemanini istiyorsunuz giriniz\n");
+    scanf("%d",&n);
+    sonuc=fibo(n);
+    printf("%d. elemanin degeri %ld dir.",n,sonuc);
+
+    return 0;
+}
+long int fibo(int x)
+{
+    if (x==0)
+        return 0;
+    else if(x==1)
+        return 1;
+    else
+        return fibo(x-1) + fibo(x-2);
+}
