@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int kactane,dizi[1000],toplam=0,ort,b=0,a;
+    printf("lutfen kac tane sayi icin hesaplama yapcaginizi yaziniz\n");
+    scanf("%d",&kactane);
+    float f;
+    printf("lutfen standart sapmasini hesaplamak istediginiz sayilari giriniz\n");
+    if(kactane <= 1000 && kactane>1)
+
+    {
+        for(int i=0;i<kactane;i++)
+        {
+            scanf("%d",&dizi[i]);
+            toplam+=dizi[i];
+        }
+        ort=toplam/kactane;
+
+        for(int i=0;i<kactane;i++)
+        {
+            a=dizi[i]-ort;
+            a=a*a;
+            b=b+a;
+        }
+
+        f=sqrt(b/(kactane-1));
+
+        printf("\nstandart sapma = %f",f);
+    }
+    else
+        printf("1000 den fazla sayiyi baban hesaplasin!!");
+
+
+}
