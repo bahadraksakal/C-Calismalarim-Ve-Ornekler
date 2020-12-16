@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int i,toplam=0;
+    for(i=0;i<=10;i++)
+    {
+        toplam=toplam+i*i*i;  //toplam+=i*i*i
+    }
+    printf("1 den 10 a kadar olan sayilarin kuplerinin toplami =   %d\n",toplam);
+    printf("\n\ni nin degeri   =   %d\n\n",i); // 11  yani i  son 1 kere 1 artar ve total degeri 11 olur ve for un içine giremez.
+
+    int a=0,toplam2=0;
+    while(a<=10)
+    {
+        toplam2+=a*a*a;
+        a++;
+    }
+    printf("1 den 10 a kadar olan sayilarin kubu(while) =  %d\n\n",toplam2);
+    printf("\n\na nin degeri   =   %d\n\n",a);
+
+    return 0;
+}
