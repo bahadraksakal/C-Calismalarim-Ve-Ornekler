@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+
+
+
+int main()
+{
+
+    char dizi1[10000];
+    scanf("%[^\n]1000s",dizi1); //[^\n] kodu bosluklarda durmamamızı sagliyor  , max 999 adet veri girebilir.
+    printf(dizi1);
+
+    return 0;
+}
