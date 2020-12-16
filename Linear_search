@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()  //linner search
+{
+    int vektor[100];
+    int arananSayi,j;
+    printf("aradiginiz sayiyi giriniz:\n");
+    scanf("%d",&arananSayi);
+    for(int i=0;i<100;i++)
+        vektor[i]=2*i;
+
+    for(j=0;j<100;j++)
+        if(arananSayi==vektor[j]){
+            printf("%d. elemanda sayiniz bulundu\n",j+1);
+            break;
+        }
+    if(j>arananSayi)
+        printf("girdiginiz sayi bu vektorde bulunmuyor\n");
+    return 0;
+}
