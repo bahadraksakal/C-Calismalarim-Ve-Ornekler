@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+int main()
+{
+    int sayi,i,sayi1,sayi2;
+    printf("girdiginiz ilk sayi ile girdiginiz ikinci sayi arasinsakileri gosteren programa hos geldiniz!\n");
+    printf("programi kapatmak icin iki sayiyida 0 giriniz\n");
+
+    printf("birinci sayiyi giriniz:\n");
+    scanf("%d",&sayi);
+    printf("ikinci sayiyi giriniz:\n");
+    scanf("%d",&sayi1);
+    while(sayi != 0)
+    {
+
+
+        for(sayi2=sayi;sayi2<=sayi1;sayi2++)
+        {
+           for (i=2;i<sayi;i++)
+            {
+                if (sayi%i==0)
+                    break;
+            }
+            if(sayi==i)
+            {
+                printf("%d asal bir sayidir\n",i);
+            }
+            sayi +=1;
+
+        }
+
+    }
+    /*break;  döngü dahil döngüye kadar sonlandýrýr.
+     Mesela  for un  içinde  3 katmanlý if  olsun.
+     ben en içteki if e break yazarsam ,
+     en içteki   while || for ' a  kadar olan   kýsým sonlanýr (while || for dahil).*/
+     /*
+        for()
+            if()
+                if()
+                    if()
+        <*-----------------break;       // *  a kadar bizi çikarir
+    for()
+        if()
+            for()
+                if()
+          *<-------break;               // *  a kadar bizi çikarir
+      */
+
+    return 0;
+}
