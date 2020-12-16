@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <limits.h>
+#define N 30 // N i 30 olarak tanimladim.
+
+int main()
+{
+    system("COLOR D");
+    int i,j,sayac=0;
+    srand(time(0));
+    int random_dizi[30],kopya_dizi[30];
+    int dizi[30];
+    for(i=0;i<30;i++)
+    {
+        random_dizi[i]=rand()%2000+11;
+        kopya_dizi[i]=random_dizi[i];// orj diziyi saklamak icin
+        printf("%d indisli eleman = %d\n",i,random_dizi[i]);
+
+    }
+    for(int c=0;c<30;c++)
+    {
+        int kucuk=INT_MAX;
+        for(j=0;j<30;j++)
+        {
+
+            if(random_dizi[j]<kucuk)
+            {
+                kucuk=random_dizi[j];
+                sayac=j;
+
+            }
+
+        }
+            random_dizi[sayac]=INT_MAX;// hangi eleman silinicek.
+            dizi[c]=kucuk;
+
+
+
+
+    }
+    printf("\n\nkucukten buyuge siralanmis sekli\n\n\n");
+    for(int i=0;i<30;i++)
+    {
+        printf("%d indisli eleman = %d\n",i,dizi[i]);
+    }
+    return 0;
+}
