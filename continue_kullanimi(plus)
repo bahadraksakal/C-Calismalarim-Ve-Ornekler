@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int sayi1,sayi2;
+    srand(time(0)); // program her basladiginda sayi1 in tuttugu degeri sifirlamak icin kullanilir.
+    sayi1=rand()%100; // modu alýnarak istedigimiz araliga indiririz.
+    for(;;)
+    {
+        printf("bir sayi giriniz:\n");
+        scanf("%d",&sayi2);
+        if(sayi1 == sayi2)
+        {
+            printf("tebrikler :D !!! sayiyi buldunuz");
+            break;
+        }
+        else if (sayi2 > sayi1)
+            printf("yazdiginiz sayidan daha kucuk bir sayi giriniz");
+        else
+            printf("yazdiginiz sayidan daha buyuk bir deger giriniz");
+
+    }
+    return 0;
+}
