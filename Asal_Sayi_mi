@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi;
+    printf("1 ila 10 arasinda bir sayi giriniz\n");
+    scanf("%d",&sayi);
+    if (1 <= sayi && sayi<=10){  // && (çift amperstand = "VE", "And" demektir.)
+      printf("\n1 ila 10 arasinda bir sayi girdiniz, isleminiz yapiliyor\n");
+      switch(sayi){
+        case 2:
+        case 3:
+        case 5:
+        case 7:
+         printf ("asal sayi girdiniz");
+         break;
+        default:
+            printf ("\ngirdiginiz sayi asal degil");
+      }
+
+
+
+
+    }
+    else {
+
+        printf("girdiginiz sayi 1 ila 10 arasinda degil, tekrar deneyin");
+    }
+
+    return 0;
+}
