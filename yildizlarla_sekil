@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int i = 10,degisken0=1,degisken1=1,degisken2=1,degisken3=1;
+    int I = 10;
+    int d = 2;
+    int c =0,l,u=1;
+    int k=1;
+    int x,y=2;
+    for(int a=20;a>=0;a--)
+    {
+
+            for(i;i>=0;i--)
+            {
+                printf(" ");
+            }
+            if(degisken0==1)
+                printf("/");
+            for(c=1;c<=d;c++)
+                printf("*");
+            if (degisken2==1)
+                printf("\\");
+
+        d+=2;
+        printf("\n");
+        I--;
+        i=I;
+        k++;
+
+        if(k>10)
+        {
+           for(k;(k > 10 && k<=20);k++)
+            {
+                l=c-u;
+                    for(x=0;x<y;x++)
+                        printf(" ");
+                    if(degisken1==1)
+                        printf("\\");
+                    for(l;l>0;l--)
+                       printf("*");
+                    if(degisken3==1)
+                        printf("/");
+
+                printf("\n");
+                y++;
+                u+=2;
+            }
+            break;
+        }
+
+    }
