@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int sayi=20;
+    int i=0;
+    int toplam=0;
+    i=sayi;
+    for(i;i>=0;i-3)
+    {
+        toplam+=i;
+    }
+    printf("sonuc: %d",toplam);
+    return 0;
+}
