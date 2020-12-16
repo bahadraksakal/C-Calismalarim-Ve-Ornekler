@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dizi[6]={3,5,9,8,7,1};
+    int aranan_dizi[4]={9,8,7,1};
+    int j,i;
+    for(i=0;i<6;i++){
+        for(j=0;j<4;j++)
+        {
+            if(aranan_dizi[j]==dizi[i])
+            {
+                i++;
+                continue;
+            }
+            else
+                break;
+
+        }
+        if(j==4)// j yi içeride tanýmladýk çünkü aranan  dizinini bulduktan sonra eðer dizi devam ediyor olsaydý j deðeri sýfýrlanýrdý.
+        {
+            printf("bulogu buldunuz\n");
+        }
+
+    }
+    if(j != 4)
+        printf("blogu bulamadiniz\n");
+
+
+    return 0;
+}
