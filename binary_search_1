@@ -1,21 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()  //linner search
-{
-    int vektor[100];
-    int arananSayi,j;
-    printf("aradiginiz sayiyi giriniz:\n");
-    scanf("%d",&arananSayi);
-    for(int i=0;i<100;i++)
-        vektor[i]=2*i;
 
-    for(j=0;j<100;j++)
-        if(arananSayi==vektor[j]){
-            printf("%d. elemanda sayiniz bulundu\n",j+1);
+int main()
+{
+
+    int dizi[300];
+    int aranansayi=0,baslangic,orta,son;
+    int i=0,a=0;
+    baslangic = 0; // indis
+    son = 299;
+    orta = (baslangic+son)/2;
+    for(a;a<300;a++){
+        dizi[a]=2*a;
+    }
+    printf("dizinin 10. elemani: %d'dir\n\n",dizi[10]);
+    printf("aradiginiz sayiyi giriniz:\n");
+    scanf("%d",&aranansayi);
+    printf("aradiginiz sayi: %d'dir\n",aranansayi);
+
+    while(baslangic<=son)
+    {
+        printf("%d. donus\n",i);
+        i++;
+        if(aranansayi<dizi[orta])
+            son=orta-1;
+        else if(aranansayi>dizi[orta])
+            baslangic=orta+1;
+        else{
+            printf("vektorun %d. elemaninda sayiyi buldunuz\n",orta);
             break;
         }
-    if(j>arananSayi)
-        printf("girdiginiz sayi bu vektorde bulunmuyor\n");
+        orta=(baslangic+son)/2;
+    }
+    printf("\nwhile bitti\n\n");
+    if(baslangic>son)
+        printf("aradiginiz sayi bu vektorde bulunmamaktadir\n");
+    printf("\nif bitti\n");
+
     return 0;
 }
