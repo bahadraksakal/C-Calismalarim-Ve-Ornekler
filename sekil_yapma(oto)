@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int buyukluk = 1;
+    printf("istediginiz yildiniz buyuklugunu giriniz:\n");
+    scanf("%d",&buyukluk);
+    printf("\n\n\n");
+    int boslukAdediniBelirle = buyukluk/2,degisken0=1,degisken1=1,degisken2=1,degisken3=1;
+    int boslukSabiti = buyukluk/2;
+    int toplamYildizAdedi = 2;
+    int c =0,SimetridekiToplamYildizAdedi,u=1;
+    int simetrisiniNeredeBolecek=1;
+    int x,y=2;
+
+    for(;;)
+    {
+
+            for(boslukAdediniBelirle;boslukAdediniBelirle>=0;boslukAdediniBelirle--)
+            {
+                printf(" ");
+            }
+            if(degisken0==1)
+                printf("/");
+            for(c=1;c<=toplamYildizAdedi;c++)
+                printf("*");
+            if (degisken2==1)
+                printf("\\");
+            printf("\n");
+
+        toplamYildizAdedi+=2;
+        boslukSabiti--;
+        boslukAdediniBelirle=boslukSabiti;
+        simetrisiniNeredeBolecek++;
+        y=boslukSabiti+2;
+
+        if(simetrisiniNeredeBolecek>buyukluk/2)
+        {
+           for(simetrisiniNeredeBolecek;(simetrisiniNeredeBolecek > buyukluk/2 && simetrisiniNeredeBolecek<=buyukluk);simetrisiniNeredeBolecek++)
+            {
+
+                SimetridekiToplamYildizAdedi=c-u;
+                    for(x=0;x<y;x++)
+                        printf(" ");
+                    if(degisken1==1)
+                        printf("\\");
+                    for(SimetridekiToplamYildizAdedi;SimetridekiToplamYildizAdedi>0;SimetridekiToplamYildizAdedi--)
+                       printf("*");
+                    if(degisken3==1)
+                        printf("/");
+
+                printf("\n");
+                y++;
+                u+=2;
+            }
+            break;
+        }
+
+    }
+
+ return 0;
+}
