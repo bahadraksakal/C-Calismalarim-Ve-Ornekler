@@ -1,1 +1,1 @@
-# -niversite-1.-S-n-fta-Yapt-m-al-malar
+# universite 1. Sinifta Yaptigimcalismalar
