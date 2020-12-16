@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char karakter; // char içine en fazla bir karakter alabilir
+    printf("bir karakter giriniz\n");
+    scanf("%c",&karakter); // char tipi veriler %c ile okutulur.
+    if ((65 <= karakter && karakter <= 90) || (97<= karakter && karakter <= 122))  //  || ifadesi = "OR", "YADA" demektir.
+        printf("bir harf girdiniz");// char tipinde bir ifade <= gibi operatorlerle karsilastirilirsa burada ASCII kodlari devreye girer
+    else                            // ide her harfin ascii kodunu okuyarak islem yapar.
+        printf("harf olmayan bir sembol girdiniz");
+
+
+
+    return 0;
+}
+
+/* if (('A' <= karakter && karakter <= 'Z') || ('a'<= karakter && karakter <= 'z'))     // seklinde de yazilabilir.  char degerini ide direk sayiya cevirecektir.
+        printf("bir harf girdiniz"); */
