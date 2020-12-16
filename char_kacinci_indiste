@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void ara(char x[],char y[])//  ara fonksiyonu herhangi bir degere atanmadýgýndan void olarak tanýmlanabilir , direk kendisi calisicak cunku
+{
+    int i,j,sayac=0;
+    int pozisyon[51];// pozisyonlari tutucak dizi icin max. eleman girilirse  51. elemana -1  atanicak.
+    //sonuc= strlen(x)/strlen(y);
+    for(i=0;i<strlen(x)-strlen(y)+1;i++)
+    {
+        for(j=0;j<strlen(y);j++)
+            if(y[j]!=x[i+j])                // /*if(y[i+j]==x[j])
+               break;                       //   ;
+                                          //  else
+         if(j==strlen(y))                  //   break;*/
+        {
+            pozisyon[sayac++]=i; // pozisyonun sayacinci indisine i yi ata ve daha sonra sayac i 1 arttir.
+        }
+    }
+    pozisyon[sayac]=-1;// eger dizide bos yer kalirsa rasgele sayilar aticak bu sebeble -1 ile nerde bittini anlicaz.
+    sayac=0;
+    printf("bulunan indisler: ");
+    while(pozisyon[sayac]!=-1)
+    {
+        printf("%d ",pozisyon[sayac]);
+        sayac++;
+    }
+}
+int main()
+{
+    char metin1[51],metin2[51];
+    printf("ilk metni girin\n");
+    gets(metin1);
+    printf("ikinci metni girin\n");
+    gets(metin2);
+    ara(metin1,metin2);
+    return 0;
+}
