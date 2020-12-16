@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{   //uzun metinleri copy paste yapmak icin yeni bir karakter alma metodu
+    char dizi[1000];
+    char c;
+    int i,uzunluk;
+    printf("***1. metini giriniz***\n");
+    for(i=0; c!=EOF ;i++) //eof karakter ^Z olduðundan bunuda dizinin içine atýyor ve "determinating karakteri:" strlen(girilen_char_sayisi+3) konumuna atiyor.
+    {
+        c=getchar();
+        dizi[i]=c;
+    }
+    //dizi[i-2]='\0'; // eof karakter ^Z olduðundan  ve bu 2 adet chardan oluþtuðundan bunlarýda karakterden sayiyor.
+    printf("\ni nin degeri =%d\n",i);
+    dizi[i-2]='\0'; //^Z yi karakterden saymamasi için determinating karakter verdim.
+    uzunluk=strlen(dizi);
+    printf("\n%d\n",uzunluk);
+    puts(dizi);
+    return 0;
+}
