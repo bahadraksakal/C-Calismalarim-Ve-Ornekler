@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    for(i=1;i<10;i++){
+        if (i==3)
+            // bu sayede 3 ü yazmaz.
+            continue;// altýnda kalan dongu elemanlarýný calýstýrma
+    printf("i:%d\n",i);
+    }
+    return 0;
+}
