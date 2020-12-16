@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int plaka;
+    printf("bir plaka giriniz");
+    scanf("%d",&plaka);
+
+    switch (plaka){  // sadece char ve int kullanilir.
+    case 16:
+         printf("bursa");
+          break;
+    case 34:
+            printf("istanbul");
+            break;
+    default:
+        printf("deger tanimli degil");
+
+    }
+    return 0;
+}
