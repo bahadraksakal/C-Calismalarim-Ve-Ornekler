@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    printf("once yapmak istediginiz islemi giriniz sonra sayi 1 ve sayi 2 yi sirayla giriniz\n");
+    float sayi1=0,sayi2=0;
+    float Islemsonucu;
+    char Islem;
+    printf("toplama icin t yaziniz \ncarpma icin x yaziniz\nbolme icin b yaziniz\ncikarma icin yaziniz c yaziniz\n");
+    scanf("%c",&Islem);
+    scanf("%f",&sayi1);  //  ıslemi sayi 1 ve 2 den once tanımlamaz isem hata alıyorum.
+    scanf("%f",&sayi2);
+
+    printf("girdiginiz islem kisaltmasi:    %c\n",Islem);
+    switch (Islem)
+    {
+                case 't':                                       /*char isim[] = "Bahadir";  printf("%s \n",isim); */
+                    Islemsonucu = sayi1 + sayi2;               // suanki bilgim ile toplama yazamadim :(
+                    break;
+                case 'c':
+                    Islemsonucu = sayi1 - sayi2;
+                    break;
+                case 'x':
+                    Islemsonucu = sayi1 * sayi2;
+                    break;
+                case 'b':
+                    Islemsonucu = sayi1 / sayi2;
+                    break;
+                default:
+                    break;
+
+    }
+    printf("Islemsonucu: %f",Islemsonucu);
+
+
+    return 0;
+}
