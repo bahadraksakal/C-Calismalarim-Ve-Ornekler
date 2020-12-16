@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a;
+    printf("bir sayi giriniz: \n");
+    scanf("%d",&a);
+
+    if (a%2 == 0) // a nin 2 ile olan modundan kalan ya 1 dir ya sifir . Kalan sifir ise sayi cifttir , Kalan bir ise sayi tektiktir
+        printf("cift sayi girdiniz");
+    else
+        printf("tek sayi girdiniz");
+
+    return 0;
+}
