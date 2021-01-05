@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int kac_adim_surdu=0,kontrol=1,k_max=0;
+
+int winwin(int k);
+void kat(int u);
+
+int main()
+{
+    int sayi;
+    scanf("%d",&sayi);
+    winwin(sayi);
+    printf("\n islem %d adim surdu\n",kac_adim_surdu);
+    printf("\n sayinin ulastigi max deger = %d \n",k_max);
+    return 0;
+}
+int winwin(int k)
+{
+    kac_adim_surdu++;
+
+    if(k>k_max)
+        k_max=k;
+
+
+    if(k%2==0)
+    {
+
+        kat(k);
+        k=k/2;
+    }
+    else
+        k=k*3+1;
+
+    if(k!=1)
+    {
+      printf("k=%d\n",k);
+      return winwin(k);
+    }
+
+
+    else
+       return k;
+
+}
+void kat(int u)
+{
+    if(kontrol==1)
+   {
+        for(int i=1;i<u;i++)
+            if(pow(2,i)==u)
+            {
+               u=pow(2,i);
+               printf("%d sayisindan itibaren 2 ile bolunerek 1 e gider\n",u);
+               break;
+            }
+        kontrol--;
+   }
+}
