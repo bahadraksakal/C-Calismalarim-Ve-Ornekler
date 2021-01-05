@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+//1 den büyük asal olmayan bir tamsayinin rakamlarinin toplami, sayi asal çarpanlarina ayrilarak yazildiginda ,
+//tum asal carpanlarinin basamak degerlerinin toplami , sayinin kendi basamak degerlerinin toplamina esit ise bu sayiya smith sayi denir.
+//121 = 11× 11   1 + 2 + 1 = 1 + 1 + 1 + 1  bir smith sayidir ornek:166 bir smith sayidir.
+int sayac=0;
+int main()
+{int sayi,bulundu=0,poz[100],bulundu2=0,poz2[100],sayac2=0,top=0,poz3[100],top1=0,poz4[100],temp;
+    printf("sayi:");scanf("%d",&sayi);
+    temp=sayi;
+    for(int i=2;i<sayi;i++){
+        if(sayi%i==0){
+            bulundu=1;
+        break;}
+    }
+    if(bulundu==0){
+        printf("%d asaldir",sayi);
+        }
+    else{
+
+        carpanhesapla(poz,sayi);
+
+       for(int i=0;i<sayac;i++){
+        for(int j=2;j<poz[i];j++){
+                if(poz[i]%j==0)
+                bulundu2=1;
+                break;
+       }
+       if(bulundu2==0)
+            poz2[sayac2++]=poz[i];
+
+      }
+      printf("%d 'nin asal carpanlari...\n",sayi);
+      for(int i=0;i<sayac2;i++){
+        printf("%d ",poz2[i]);
+        while(poz2[i]>0){
+         poz3[i]=poz2[i]%10;
+         poz2[i]=poz2[i]/10;
+         top+=poz3[i];
+        }
+       }
+       printf("\nasal sayilarin rakamlari top:%d\n",top);
+int i=0;
+      while(sayi>0){
+        poz4[i]=sayi%10;
+        sayi=sayi/10;
+        top1+=poz4[i];
+
+      }
+      printf("sayinin rakamlari top:%d\n",top1);
+      if(top==top1)
+        printf("%d smith sayisidir",temp);
+      else
+        printf("%d smith sayisi degildir",temp);
+    }
+
+
+    return 0;
+}
+int carpanhesapla(int poz_x[],int a  )
+{
+	int kontrol=1;
+
+	for(int i=2;i<a;i++)
+	{
+            if(a%i==0)
+                poz_x[sayac++]=i;
+
+	}
+
+
+
+	for(int i=0;i<sayac;i++)
+		kontrol*=poz_x[i];
+
+
+	if(kontrol==a)
+        return 0;
+	if(kontrol!=a)
+		return carpanhesapla( poz_x, a);
+}
