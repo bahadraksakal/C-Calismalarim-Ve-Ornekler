@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <dos.h>
+#include <dir.h>
+#include <windows.h>
+#define P 100
+#define O 20
+ /*100 tane kapý var. Bu kapýlar 1'den 100'e kadar numaralandýrýlmýþ.
+  Kapýlarýn hepsi kilitli. Elimizde 1'den 20'ye kadar numaralandýrýlmýþ 20 tane anahtar var.
+  Bir kapýnýn numarasý bir anahtarýn numarasýna tam bölünüyorsa o anahtar o kapýyý açabiliyor (ya da kilitleyebiliyor!).
+  1 numaralý anahtardan baþlayarak her anahtar için kapýlarý dolaþýlýyor.
+  Anahtar ile kapý açýlýyor ya da kilitleniyor. Yani kapý açýksa kilitleniyor kapý kilitli ise kapý açýlýyor.
+  20. turdan sonra, yani son anahtarýn kullanýlmasýndan sonra hangi kapýlar açýk hangi kapýlar kilitlidir?
+ Bir C programý yazarak açýk olan kapýlarýn numaralarýný ekrana yazdýrýn.
+*/
+int problemicoz(int* kapi,int kapi_no,int anahtar_no, int i , int j);
+void kapi_durumu(int * kapi);
+void SetColor(int ForgC);
+void main()
+{
+    int *kapi=(int *)calloc(P,sizeof(int));
+    int *anahtar=(int *)calloc(O,sizeof(int));
+
+        for(int j=0;j<O;j++)
+        {
+           for(int i=0;i<P;i++)
+                *(kapi+i)=problemicoz(kapi,i+1,j+1,i,j);
+
+        }
+
+    kapi_durumu(kapi);
+
+    free(kapi);
+    free(anahtar);
+}
+int problemicoz(int* kapi,int kapi_no,int anahtar_no, int i , int j)
+{
+    if(kapi_no%anahtar_no==0)
+    {
+       if(*(kapi+i)==1)
+            return 0;
+       if(*(kapi+i)==0)
+            return 1;
+    }
+    else
+        return *(kapi+i);
+}
+void kapi_durumu(int * kapi)
+{
+    for(int i=0;i<P;i++)
+    {
+        if(*(kapi+i)==1)
+        {
+            SetColor(2);
+            printf("%d. numarali kapi suan aciktir\n",i+1);
+            SetColor(15);
+        }
+        else
+        {
+            SetColor(4);
+            printf("%d. numarali kapi suan kilitlidir\n",i+1);
+            SetColor(15);
+        }
+    }
+}
+void SetColor(int ForgC)  // estetik gorunum icin yazilmistir.
+{
+	 WORD wColor;
+
+      HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+                       //We use csbi for the wAttributes word.
+     if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
+     {
+                 //Mask out all but the background attribute, and add in the forgournd    color
+          wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
+          SetConsoleTextAttribute(hStdOut, wColor);
+     }
+     return;
+}
+/*
+BLACK	     0
+BLUE	     1
+GREEN	     2
+CYAN	     3
+RED	         4
+MAGENTA      5  // purple
+BROWN	     6
+LIGHTGRAY	 7
+DARKGRAY	 8
+LIGHTBLUE	 9
+LIGHTGREEN	 10
+LIGHTCYAN	 11
+LIGHTRED	 12
+LIGHTMAGENTA 13
+YELLOW	     14
+WHITE	     15
+*/
