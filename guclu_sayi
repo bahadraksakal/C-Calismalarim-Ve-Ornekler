@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+// 19 == 1*9  + 1+9 // 49 == 4*9 + 4+9 // bir sayinin basamaklarinin toplami + basamaklarinin caripimi = kendisi ise bu sayi guclu sayidir.
+int main()
+{
+    while(1)
+    {
+        int parcala[100],toplam=0,carpim=1,sayi_int; // atoi fonksiyonu string bir sayi yi int e cevir.
+                                                  //orn: char dizi="12345"; (bir_iki_uc_dort_bes)--->atoi--> 12345 (onikibin_ucyuz_kirk_bes)
+        char sayi[99+1],sayi_islem[99][2];  // atoi fonksiyonu parametre olarak pointer alir ve '\0' gorene kadar ram i okur.
+        scanf("%s",sayi);
+        for(int i=0;i<strlen(sayi);i++)
+        {
+            sayi_islem[i][0]=sayi[i];
+            sayi_islem[i][1]='\0';
+        }
+        for(int i=0;i<strlen(sayi);i++)
+        {
+            parcala[i]=atoi(sayi_islem+i);//sayi_islem 2 sutunlu bir matris oldugundan her "+i"  ** ramde bizi sizeof(type(sayi_islem))*i*sutun_sayisi ** kadar ileri goturur.
+        }
+        for(int i=0;i<strlen(sayi);i++)
+        {
+            toplam+=parcala[i];
+            carpim*=parcala[i];
+        }
+        sayi_int=atoi(sayi);
+        if(toplam+carpim==sayi_int)
+            printf("bu sayi guclu sayidir\nsayi: %d\n",sayi_int);
+        else
+            printf("bu sayi guclu sayi degildir !!!\nsayi: %d\n",sayi_int);
+    }
+
+
+    return 0;
+}
