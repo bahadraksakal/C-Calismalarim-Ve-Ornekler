@@ -1,0 +1,85 @@
+#include <string.h>
+#include <time.h>
+#define n 1
+#define m 2
+#define l 3
+#define r 2
+#define t 3
+#define p 3
+// ortak elemanlari bul.
+void deger(int *s1[][m][l],int *s2[][t][p]){
+srand(time(0));
+for(int i=0;i<1;i++){
+    for(int j=0;j<2;j++){
+        for(int k=0;k<3;k++)
+            *(*(*(s1+i)+j)+k)=rand()%50;//s1[i][j][k]
+    }
+}
+printf("1.dizinin elemanlari...\n");
+for(int i=0;i<1;i++){
+    for(int j=0;j<2;j++){
+        for(int k=0;k<3;k++){
+            printf("%d ",*(*(*(s1+i)+j)+k));
+        }printf("\n");
+
+}printf("\n");}
+printf("\n");
+for(int i=0;i<2;i++){
+    for(int j=0;j<3;j++){
+        for(int k=0;k<3;k++){
+        *(*(*(s2+i)+j)+k)=rand()%50;
+}}}
+printf("2.dizinin elemanlari...\n");
+for(int i=0;i<2;i++){
+    for(int j=0;j<3;j++){
+        for(int k=0;k<3;k++){
+       printf("%d ",*(*(*(s2+i)+j)+k));}
+       printf("\n");}printf("\n");}
+      ortak(s1,s2);
+}
+
+
+void ortak(int *n1[][m][l],int *n2[][t][p]){
+int a1[61],sayac1=0,a2[113],sayac2=0,ortak[62],e=0,ortak2[62],d=0,bul=0;
+for(int i=0;i<1;i++){
+    for(int j=0;j<2;j++){
+        for(int k=0;k<3;k++){
+        a1[sayac1++]=*(*(*(n1+i)+j)+k);
+}}}
+for(int i=0;i<2;i++){
+    for(int j=0;j<3;j++){
+        for(int k=0;k<3;k++){
+        a2[sayac2++]=*(*(*(n2+i)+j)+k);
+}}}
+
+for(int i=0;i<sayac2;i++){
+    for(int j=0;j<sayac1;j++){
+        if(a1[j]==a2[i])
+            ortak[e++]=a2[i];
+        else
+            continue;
+    }
+}
+for(int j=0;j<e;j++){
+    bul=0;
+for(int i=0;i<j;i++){
+    if(ortak[i]==ortak[j])
+    bul=1;
+
+}if(bul==0){
+ortak2[d++]=ortak[j];
+}
+}
+
+printf("ortak elemanlar:\n");
+for(int i=0;i<d;i++)
+    printf("%d ",ortak2[i]);
+}
+
+int main()
+{
+int *dizi1[1][2][3];
+int *dizi2[2][3][3];
+deger(dizi1,dizi2);
+
+return 0;}
