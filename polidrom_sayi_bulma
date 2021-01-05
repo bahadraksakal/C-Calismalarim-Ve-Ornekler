@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//101,202 gibi bastan ve sondan yazilisi ayni olan sayilar polidrom sayilardir.
+int main()
+{
+    int i=0,j=0,sonuc;
+    char sayi[1000];
+    char kontrol[1000];
+    printf("sayi giriniz\n");
+    scanf("%s",sayi);
+    for(i=strlen(sayi)-1;i>=0;i--,j++)
+        kontrol[j]=sayi[i];
+
+    kontrol[j]='\0';
+    sonuc=strcmp(kontrol,sayi);
+
+    printf("%s\n",sayi);
+    printf("%s\n",kontrol);
+    printf("%d\n",sonuc);
+
+    if(sonuc==0)
+        printf("girdiginiz sayi polidromdur\n");
+    else
+        printf("bu sayi polidrom degildir\n");
+
+
+    return 0;
+}
