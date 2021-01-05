@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char *dizi=(char*)calloc(500,sizeof(char));
+    int poz_k,kac_karakter;
+    printf("metni giriniz\n");
+    gets(dizi);
+    char *dizi_t=(char*)calloc(strlen(dizi)+1,sizeof(char));//tasarruf;
+    strcpy(dizi_t,dizi);
+    free(dizi);// gereksiz boyuttan tasarruf ediyorum.
+    printf("hangi pozisyondan itibaren  kopyalamak istiyorsunuz giriniz\n");
+    scanf("%d",&poz_k);
+    printf("kac eleman kopyalamak istiyorsunuz giriniz\n");
+    scanf("%d",&kac_karakter);
+    for(int i=poz_k;i<=kac_karakter+poz_k;i++)
+        printf("%c",*(dizi_t+i));// istersek bir baska diziye atama yapabiliriz.
+
+
+
+
+
+    return 0;
+}
