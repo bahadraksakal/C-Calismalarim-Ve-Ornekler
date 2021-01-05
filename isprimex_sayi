@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*
+Bildirimi aþaðýda verilen isprimex fonksiyonunu tanýmlayýnýz.
+int isprimex(int number);
+isprimex fonksiyonuna gönderilen argumanýn asal olup olmadýðý sýnanacak,
+eðer sayý asal ise bu kez sayýnýn basamak deðerleri toplanarak elde edilen sayýnýn asal olup olmadýðý sýnanacaktýr.
+Bu iþlem sonuçta tek basamaklý bir sayý kalana kadar devam edilecektir.
+Eðer en son elde edilen tek basamaklý sayý dahil tüm sayýlar asal ise isprimex fonksiyonu sýfýr dýþý bir deðere geri dönecektir.
+Eðer herhangi bir kademede asal olmayan bir sayý elde edilirse fonksiyon 0 deðerine geri dönecektir.
+(Not : birden fazla fonksiyon tanýmlayabilirsiniz.)
+*/
+int isprimex(int number, char *str);
+void main()
+{
+    int sayi,sonuc;
+    char sayi_x[30];
+    scanf("%s",sayi_x);
+    sayi=atoi(sayi_x);
+    sonuc=isprimex(sayi,sayi_x);
+    printf("sonuc=%d",sonuc);
+}
+int isprimex(int number, char *str)
+{
+    int i,j,k=1;
+    for(i=2;i<number;i++)
+        if(number%i==0)
+            break;
+    if(i==number)
+    {
+        if(strlen(str)==1) // cevap
+            return 1;
+
+        number=0;
+        for(int a=0;a<strlen(str);a++)
+        {
+            number+=(int)str[a]-48; // sayilar ascii de 48 den baslar.
+        }
+        str[0]='\0';// dizinin ustune yazmak icin bu islem.
+        sprintf(str,"%d%c",number,'\0'); // dizinin bitti yerin anlsilabilmesi icin bir adette '\0' koydum.
+        puts(str);
+        return isprimex(number,str);
+    }
+    else
+        return 0;
+}
