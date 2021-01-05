@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void point_matris(int _2Bdizi[][4],int r,int c);
+void point_matris2(int *_2Bdizi,int r,int c);
+void point_matris4(int ****_2Bdizi,int r,int c);
+
+int main()
+{
+    int matris[3][4];
+    int *matris_x[3][4];
+    srand(time(0));
+    printf("\t{\n");
+    for(int i=0;i<3;i++)
+    {
+        printf("\t  ");
+        for(int j=0;j<4;j++)
+        {
+          matris[i][j]=rand()%100+11;
+          printf("%d, ",matris[i][j]);
+        }
+        printf("\n");
+
+    }
+        printf("\t\t\t  }");
+    //
+    point_matris(matris,3,4);
+    point_matris2(matris,3,4);
+    int **yptr=&matris;
+    matris_x[0][0]=matris;
+    point_matris4(matris,3,4);
+    return 0;
+}
+
+void point_matris(int _2Bdizi[][4],int r,int c)
+{
+    printf("\n");
+    printf("\n");
+    //int *ptr=_2Bdizi;
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+          printf("%u, ",**(_2Bdizi+j+i*c)); // pointere +1 eklemek onu 4 kademe götürücek. int 4 bytes.
+        }
+        printf("\n");
+
+    }
+    printf("\n");
+    printf("\n");
+
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+          printf("%u, ",(_2Bdizi[i][j])); // pointere +1 eklemek onu 4 kademe götürücek. int 4 bytes.
+        }
+        printf("\n");
+
+    }
+}
+void point_matris2(int *_2Bdizi,int r,int c)
+{
+    printf("\n");
+    printf("\n");
+    //int *ptr=_2Bdizi;
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+          printf("%u, ",*(_2Bdizi+j+i*c)); // pointere +1 eklemek onu 4 kademe götürücek. int 4 bytes.
+        }
+        printf("\n");
+
+    }
+    printf("\n");
+    printf("\n");
+
+
+}
+
+void point_matris4(int ****_2Bdizi,int r,int c)
+{
+    printf("\n");
+    printf("\n");
+    //int *ptr=_2Bdizi;
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+          printf("%u, ",(_2Bdizi+j+i*c)); // pointere +1 eklemek onu 4 kademe götürücek. int 4 bytes.
+        }
+        printf("\n");
+
+    }
+    printf("\n");
+    printf("\n");
+
+
+}
