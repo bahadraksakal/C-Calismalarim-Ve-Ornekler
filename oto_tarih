@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+//Çaðýrýldýðýnda ekrana 01.01.1900 ve 31.12.2000 arasýnda rastgele bir tarih yazacak fonksiyonunu tanýmlayýnýz. Fonksiyon ekrana yazdýrdýðý tarih geçerli bir tarih olacaktýr. Rasgele tarihin Þubat ayýna denk gelmesi durumunda, seçilen yýlýn artýk yýl olup olmamasýna göre, Þubat ayý 29 çekebilecektir.
+void print_random_date(void);
+int main()
+{
+    srand(time(0));
+    for(int i=0;i<999;i++)
+        print_random_date();
+    return 0;
+}
+void print_random_date(void)
+{
+
+    int gg,aa,yyyy;
+    gg=rand()%31+1; aa=rand()%12+1; yyyy=rand()%101+1900;
+    if(yyyy%4==0)
+        if(aa==2)
+            gg=rand()%29+1;
+    else
+         if(aa==2)
+            gg=rand()%28+1;
+    if(aa==4||aa==6||aa==9||aa==11)
+        gg=rand()%30+1;
+    printf("%02d.%02d.%d\n",gg,aa,yyyy);
+}
