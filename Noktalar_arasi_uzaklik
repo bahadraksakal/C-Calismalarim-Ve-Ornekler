@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dizi[10][10],n,m,min=0,max=0,i,j,POZi,POZj; //*
+    printf("kac satir:");
+    scanf("%d",&n);
+    printf("kac sutun:");
+    scanf("%d",&m);
+    printf("dizinin elemanlarini gir...\n");
+    for( i=0;i<n;i++)
+    {
+        for( j=0;j<m;j++)
+        {
+            scanf("%d",&dizi[i][j]);
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        for( j=0;j<m;j++)
+        {
+            printf("%d",dizi[i][j]);
+            printf("\n");
+        }
+
+    }
+    printf("\n");
+    for( i=0;i<n;i++)
+    {
+        for( j=0;j<m;j++)
+        {
+            if(dizi[i][j]>max)
+            {
+                max=dizi[i][j];
+                POZi=i; //*
+                POZj=j; //*
+            }
+        }
+    }
+
+      printf("max:%d\n",max);
+      printf("max deger %d.satirda %d.sutunda blunur.\n",POZi+1,POZj+1); //*
+      min=max;
+      for( i=0;i<n;i++){
+      for( j=0;j<m;j++){
+      if(dizi[i][j]<min)
+      min=dizi[i][j];
+          }}
+      printf("min:%d\n",min);
+
+      //printf("min deger %d.satirda %d.sutunda blunur.\n",..);
+    return 0;
+}
