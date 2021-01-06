@@ -1,0 +1,170 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+// "ucmilyon alti yuz elli bin ikiyuzonyedi" , "bir milyon bir" , "alti milyon on bir bin yuz"  ;
+char sayilar[18][8]={"bir","iki","uc","dort","bes","alti","yedi","sekiz","dokuz",
+                     "on","yirmi","otuz","kirk","elli","altmis","yetmis","seksen","doksan",
+                     }; // toplama
+int sayilar_int[18]={1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90};
+char anahtarlar[4][7]={"milyar","milyon","bin","yuz"};  // carpma ve kalanlarla int e cevirip topla 100 hariç . 100 icin string + birlesitme + tekrar int ve en son toplama;
+int anahtarlar_int[4]={1000000000,1000000,1000,100};
+int cek[20];
+int sonuc=0;
+
+void cek_oku(char *ornek);
+
+int main()
+{
+    char ornek1[50]={"ucmilyon alti yuz elli bin ikiyuzonyedi"};//3.650.217
+    char ornek2[50]={"bir milyon bir"};
+    char ornek3[50]={"alti milyon on bir bin yuz"};
+    char ornek4[50]={"ikimilyaryuzmilyon dortyuz seksen besbin yedi"};
+
+    cek_oku(ornek4);
+
+    printf("\nkesin dogru olan sonuc=%d\n",sonuc);
+
+    return 0;
+}
+
+void cek_oku(char *ornek)
+{
+    int i,j,k,l,m,n,cek_k=0,sum=0;
+    char temp[8];
+    printf("girdi\n");
+    for(i=0;i<strlen(ornek);i++)
+    {
+        for(j=0;j<18;j++)
+        {
+            m=i;
+           for(k=0;k<strlen(sayilar+j);k++)
+           {
+                temp[k]=ornek[m];
+                 m++;
+           }
+           temp[k]='\0';
+           printf("%s\n",temp);
+
+           if(strcmp(temp,anahtarlar[0])==0)//||temp==anahtarlar[1]||temp==anahtarlar[2]||temp==anahtarlar[3]
+           {
+                i=i+strlen(anahtarlar[0])-1;
+               printf("anahtar[0] girdi\n");
+                if(cek_k!=0)
+                {
+                    sum=0;
+                    for(l=0;l<cek_k;l++)
+                    {
+                        sum+=cek[l];
+                    }
+                    sonuc+=sum*anahtarlar_int[0];
+                    printf("milyarlar sum=%d  sonuc=%d\n",sum,sonuc);
+                }
+                else
+                {
+                    sonuc+=anahtarlar_int[0];
+                }
+              cek_k=0;
+              break;
+
+           }
+
+           else if(strcmp(temp,anahtarlar[1])==0)
+           {
+                i=i+strlen(anahtarlar[1])-1;
+               printf("anahtar[1] girdi\n");
+                if(cek_k!=0)
+                {
+                    sum=0;
+                    for(l=0;l<cek_k;l++)
+                    {
+                        sum+=cek[l];
+                    }
+                    sonuc+=sum*anahtarlar_int[1];
+                    printf("milyonlar sum=%d  sonuc=%d\n",sum,sonuc);
+                }
+                else
+                {
+                    sonuc+=anahtarlar_int[1];
+                }
+                cek_k=0;
+                break;
+
+           }
+
+           else if(strcmp(temp,anahtarlar[2])==0)
+           {
+                i=i+strlen(anahtarlar[2])-1;
+               printf("anahtar[2] girdi\n");
+                if(cek_k!=0)
+                {
+                    sum=0;
+                    for(l=0;l<cek_k;l++)
+                    {
+                        sum+=cek[l];
+                    }
+                    sonuc+=sum*anahtarlar_int[2];
+                    printf("binler sum=%d sonuc=%d\n  ",sum,sonuc);
+                }
+                else
+                {
+                    sonuc+=anahtarlar_int[2];
+                }
+                cek_k=0;
+                break;
+
+           }
+
+           else if(strcmp(temp,anahtarlar[3])==0) // yuz burayı en son
+           {
+                i=i+strlen(anahtarlar[3])-1;
+               printf("anahtar[3] girdi\n");
+                if(cek_k!=0)
+                {
+                    sum=0;
+                    printf("cek_k = %d\n",cek_k);
+                    for(l=0;l<cek_k;l++)
+                    {
+                        printf("yuzlere girdi tur = %d\n",l);
+                        sum+=cek[l];
+                    }
+                    cek_k=0;
+                    cek[cek_k++]=sum*anahtarlar_int[3];
+                    printf("yuzler cek[0]=%d=%d\n",sum,cek[cek_k-1]);
+                }
+                else
+                {
+                    cek[cek_k++]=anahtarlar_int[3];
+                }
+                break;
+
+           } // en son
+           else
+           {
+
+               if(strcmp(temp,sayilar+j)==0)
+               {
+                   i=i+strlen(sayilar+j)-1;
+                   cek[cek_k++]=sayilar_int[j];
+                   printf("cek[%d]=sayilar_int[%d]=%d\n",cek_k-1,j,sayilar_int[j]);
+                   break;
+               }
+           }
+
+
+        }
+        printf("18 lik for bitti\n");
+    }
+
+    printf("son basamaklari eksik olabilen sonuc=%d\n",sonuc);
+
+    if(cek_k!=0)
+    {
+        for(l=0;l<cek_k;l++)
+        {
+            printf("l=%d    cek[%d]=%d\n",l,l,cek[l]);
+            sonuc+=cek[l];
+        }
+    }
+}
