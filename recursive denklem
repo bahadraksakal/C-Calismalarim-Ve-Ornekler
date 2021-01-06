@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+//Ekrandn girilen n sayisina gore asagidaki toplamayi yapan algoritmanýn akýs semasýný ve c++ kodunu yazýn:
+//Toplam = x + x^2/2! + x^3/3! + x^4/4!+ ……..x^n/n!
+double denklem(int x,int i,double toplam,int faktoriyel,int n);
+int main()
+{
+    int i=1,sayi,n,faktoriyel=1;
+    double toplam=0;
+    printf("bir sayi giriniz\n");
+    scanf("%d",&sayi);
+    printf("kac adim sursun\n");
+    scanf("%d",&n);
+    printf("%.3lf\n",denklem(sayi,i,toplam,faktoriyel,n));
+    return 0;
+}
+double denklem(int x,int i,double toplam, int faktoriyel,int n)
+{
+
+    faktoriyel*=i;
+    toplam+=pow(x,i)/(float)faktoriyel;
+    i++;
+    if(i==n+1)
+        return toplam;
+    else
+        denklem(x,i,toplam,faktoriyel,n);
+}
