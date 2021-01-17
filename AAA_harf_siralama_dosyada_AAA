@@ -1,0 +1,139 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void islem2(FILE *metin);
+
+int main()
+{
+    FILE *metin=fopen("metin.txt","r");
+
+    printf("progamimizda 2 tur islem bulunmaktadir\n1.islem : Her harften kac tane oldugunu tum harfler icin bulur ve onlari siralar\n"
+           "2.islem: Sadece sizin istediginiz harfi spesifik olarak inceler\n\n");
+    again:
+
+    printf("lutfen yapmak istediginiz islemin kodunu giriniz 1/2 ? \n");
+
+    char islem;
+    scanf("%c",&islem);
+
+    if(islem=='2')
+    {
+        printf("***2 numarali islem baslatiliyor..***\n\n");
+        islem2(metin);
+        printf("\n\n***progam tum gorevleriyle basriyla yerine getirdi ve sifir hata ile calismayi sonlandirdi***\n");
+        return 0;
+    }
+    else if(islem!='1')
+    {
+        printf("islem kodu tanimli degil lutfen gercerli bir islem kodu girin\n\n");
+        getchar();
+        goto again;
+
+    }
+    else
+    {
+        printf("\n***1 numarali islem baslatiliyor..***\n\n");
+
+        if(metin==NULL)
+        {
+            printf("***dosya acilamadi***\n\n");
+            exit(-1);
+        }
+        else
+            printf("***dosya okuma islemi basariyla gerceklesiyor...***\n\n");
+
+        int sonuclar_matrisi[26];// satirlar a,b,c gibi harfleri  temsil eder //  sutun bu harflerden kac adet oldugunu.
+
+        for(int i=0;i<26;i++) // calloclada yapilir altta yaptim , farklilik kullanmak iyidir diye bu sekilde yazdim.
+            sonuclar_matrisi[i]=0;
+
+        printf("***sonuclar matrisi basariyla tamamen sifirlandi***\n\n");
+
+        while(!feof(metin))
+        {
+           char temp=fgetc(metin);
+
+           if( temp>64&&temp<91 )
+           {
+               //printf("%c yi suan saydi ASCII kodu : %d\n",temp,temp);
+               sonuclar_matrisi[temp-65]++;
+           }
+
+           else if(temp>96&&temp<123 )
+           {
+               //printf("%c yi suan saydi ASCII kodu: %d\n",temp,temp);
+               sonuclar_matrisi[temp-97]++;
+           }
+
+        }
+
+        fclose(metin);
+
+        for(int i=0;i<26;i++)
+        {
+            printf(" ""%c||%c ""'den  %d adet vardir\n", i+65 , i+97 , sonuclar_matrisi[i] );
+        }
+
+        printf("\n***sonuclar basariyla ekrana basildi***\n");
+
+        printf("\n***harfler buyukten kucuge siralaniyor***\n\n");
+
+
+        int *siralanmis_matris=(int*)calloc(26,sizeof(int)); // icic sifirlanmaz ise hata verir
+
+        int max=0;
+
+        for(int i=0;i<26;i++)
+        {
+            for(int j=0;j<26;j++)
+            {
+                if(sonuclar_matrisi[j] >max)
+                {
+                    max=sonuclar_matrisi[j];
+                    siralanmis_matris[i]=j;
+
+                }
+            }
+
+            sonuclar_matrisi[siralanmis_matris[i]]=0;
+
+            if(max==0) // bu if assagida olmaz ise hata alirsiniz.
+                siralanmis_matris[i]= -33;
+
+            max=0;
+
+        }
+
+
+        for(int i=0;i<26;i++)
+            printf("%c > ",siralanmis_matris[i]+65 );
+
+        printf("\n\n***progam tum gorevleriyle basriyla yerine getirdi ve sifir hata ile calismayi sonlandirdi***\n");
+
+        return 0;
+    }
+}
+void islem2(FILE *metin)
+{
+    char aranan;
+    int sayac=0,poz=0;
+    printf("hangi harfi arama istiyorsunuz giriniz\n");
+    getchar();
+    scanf("%c",&aranan);
+    aranan=tolower(aranan);
+    printf("***aradiginiz harf %c dir islemleriniz gerceklesiyor...***\n\n",aranan);
+
+    while(!feof(metin))
+    {
+        char temp;
+        temp=fgetc(metin);
+        if( temp==aranan || temp+32==aranan)
+        {
+            printf("aradiginiz harf %d. pozisyonda bulundu\n",poz);
+            sayac++;
+        }
+        poz++;
+    }
+    printf("bu dosyada aradiginiz %c harfinden %d adet bulunuyor\n\n",aranan,sayac);
+}
