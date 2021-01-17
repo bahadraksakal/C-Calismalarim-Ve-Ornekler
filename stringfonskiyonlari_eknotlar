@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+// "ucmilyon alti yuz elli bin ikiyuzonyedi" , "bir milyon bir" , "alti milyon on bir bin yuz"  ;
+char sayilar[18][8]={"bir","iki","uc","dort","bes","alti","yedi","sekiz","dokuz",
+                     "on","yirmi","otuz","kirk","elli","altmis","yetmis","seksen","doksan",};
+char anahtarlar[5][7]={"milyar","milyon","bin","yuz","iki"};
+
+int main()
+{
+    for(int i=0;i<18;i++)
+    {
+        printf("%d\n",strlen(sayilar+i));
+    }
+
+    char temp[4]={"iki"};
+
+    if(strcmp(temp,sayilar+1)==0)
+    {
+        printf("strcmp matrislerde de calisir\n");
+    }
+    if(strcmp(temp,anahtarlar[4])==0)
+    {
+        printf("strcmp(temp,anahtarlar[4])==0 calisir\n");
+    }
+
+    return 0;
+}
