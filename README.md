@@ -1,1 +1,1 @@
-# universite 1. Sinifta Yaptigimcalismalar
+# Universite 1. Sinifta Yaptigim Calismalar
