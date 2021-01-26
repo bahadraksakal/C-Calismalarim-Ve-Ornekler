@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+//bir arkadak grubu kelimenin son iki harfi ikinci kelimenin ilk iki harfi olucak sekilde kelime tureterek bir oyun oynuyor. bu oyunu denetleyen
+//kodu yaziniz
+int main()
+{
+    //char girdi[50]="selam,malikane,enginar";
+    char girdi[50]="game,emzik,kiriz,ziyafet,temizlik"; // son iki harf ile ilk iki harf esit olmali. else hatali.
+    int bitis,i,j;
+    for(i=0;i<strlen(girdi);i++)
+    {
+        if(!( girdi[i]>64&&girdi[i]<91 || girdi[i]>96&&girdi[i]<123 ) )
+        {
+            bitis=i-1;
+            for(j=i;j<strlen(girdi);j++)
+            {
+                if(( girdi[j]>64&&girdi[j]<91 || girdi[j]>96&&girdi[j]<123 ) )
+                {
+                    i=j;
+                    break;
+                }
+            }
+            if(girdi[bitis-1]==girdi[i+1] && girdi[bitis]==girdi[i])
+                continue;
+            else
+                break;
+        }
+    }
+    if(i==strlen(girdi))
+        printf("tebrikler tum cevaplar dogru oyunu kazandiniz\n");
+    else
+        printf("kurallara uymadiniz ve oyunu kaybettiniz\n");
+    return 0;
+}
