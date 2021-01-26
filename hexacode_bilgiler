@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+// sarki sozleri ters cevrilmis hexa codelerden olusmutur.
+int main()
+{
+    char sarki_sozleri[201]="49206a7573742063616e27742067657420796f7574206f66206d7920686561640a426f792c20796f7572206c6f7669e2";
+    char hexacodeler[53][11];
+    for(int i=0;i<53;i++)
+    {
+        if(i==0)
+        {
+            sprintf(hexacodeler[i],"%x%c",i+32,'\0');
+            printf("%s\n",hexacodeler[i]);
+        }
+        else if(i>0 && i< 27)
+        {
+            sprintf(hexacodeler[i],"%x%c",i+64,'\0');
+            printf("%s\n",hexacodeler[i]);
+        }
+        else
+        {
+            sprintf(hexacodeler[i],"%x%c",i+70,'\0');
+            printf("%s\n",hexacodeler[i]);
+        }
+    }
+    nkcdsnfskjvskvk
+
+    return 0;
+}
