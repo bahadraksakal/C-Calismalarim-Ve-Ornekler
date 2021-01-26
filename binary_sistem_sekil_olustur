@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    printf("bir sayi giriniz\n");
+    int sayi,i;
+    scanf("%d",&sayi);
+    char **dizi=(char**)calloc(dizi,sizeof(char));
+    for(i=0;i<sayi;i++)
+    {
+        *(dizi+i)=(char*)calloc(dizi,sizeof(char));
+    }
+
+    if(sayi%2==0)
+    {
+        for(i=0;i<sayi;i++)
+        {
+            dizi[i][sayi/2-1]=1;
+            dizi[i][sayi/2]=1;
+
+            dizi[sayi/2-1][i]=1;
+            dizi[sayi/2][i]=1;
+        }
+
+
+    }
+    else
+    {
+        for(i=0;i<sayi;i++)
+        {
+            dizi[i][sayi/2]=1;
+            dizi[sayi/2][i]=1;
+        }
+    }
+    printf("\n");
+    for(i=0;i<sayi;i++)
+    {
+        for(int j=0;j<sayi;j++)
+        {
+            printf("%d",dizi[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    return 0;
+}
