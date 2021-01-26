@@ -1,0 +1,121 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/*random buyuklugun random bir tarlanin her parsalinde random bir sayi yazmaktadir. bekir abi belli yonlerde hareket edecek her durdugu
+noktadaki sayi toplanacaktir  toplam kac olur ?
+not: satir sonuna geldiginde satir basina gecilir, sutun sonuna gelindiginde sutun basina gecilir.
+ */
+int *hareket_dizisi;
+int hareket_sayisi;
+
+void hareket_et();
+int main()
+{
+    int satir,sutun,toplam=0,i,j,x,y;
+
+    srand(time(0));
+    printf("sayi tarlanizin uzunlugunu giriniz:\n");
+    scanf("%d",&satir);
+    printf("sayi tarlaniziz genisligini giriniz:\n");
+    scanf("%d",&sutun);
+    int tarla[satir][sutun];
+
+    for(i=0;i<satir;i++){
+        for(j=0;j<sutun;j++)
+        {
+            tarla[i][j]=rand()%50;
+            printf("%d, ",  *(*(tarla+i)+j) );
+        }
+        printf("\n");
+    }
+
+    hareket_et();
+    x=rand()%satir;
+    y=rand()%sutun;
+    printf("random baslangic konumuz= %d,%d (toplama dahil degildir) \n\n",x+1,y+1);
+    for(i=0;i<hareket_sayisi;i++)
+    {
+
+        if(hareket_dizisi[i]==0)
+        {
+            x-=1;
+            if(x<0)
+                x=satir-1;
+            toplam+=tarla[x][y];
+        }
+        if(hareket_dizisi[i]==1)
+        {
+            y+=1;
+            if(y>sutun-1)
+                y=0;
+            toplam+=tarla[x][y];
+        }
+        if(hareket_dizisi[i]==2)
+        {
+            x+=1;
+            if(x>satir-1)
+                x=0;
+            toplam+=tarla[x][y];
+        }
+        if(hareket_dizisi[i]==3)
+        {
+            y-=1;
+            if(y<0)
+                y=sutun-1;
+            toplam+=tarla[x][y];
+        }
+        printf("konumuz=%d,%d\n",x+1,y+1);
+    }
+    printf("\ncevap=%d\n",toplam);
+
+
+
+    return 0;
+}
+void hareket_et()
+{
+    short kullanici_istegi;
+    again:
+    printf("\nhareketleri kendiniz yaptirtmak istiyorsaniz 1 'i\nhareketlerin yapay zeka tarafindan otomatik yapilmasini istiyorsaniz 0'i\n"
+           "TUSLAYIP ENTER'E BASINIZ:\n");
+
+    scanf("%d",&kullanici_istegi);
+
+    if(kullanici_istegi==1)
+    {
+        printf("kac adet hareket yapmak istiyorsunuz giriniz\n");
+        scanf("%d",&hareket_sayisi);
+        printf("0 yukari 2 assagi , 1 saga 3 sola hareket ettirir ilk hareket yonunuzu giriniz:\n");
+        hareket_dizisi=(int *)calloc(hareket_sayisi,sizeof(int));
+        for(int i=0;i<hareket_sayisi;i++)
+        {
+            scanf("%d",hareket_dizisi+i);
+            printf("bir sonraki elemani giriniz:\n");
+        }
+        printf("islemler basariyla gerceklesti\n");
+
+
+    }
+    else if(kullanici_istegi==0)
+    {
+        printf("\nrasgele deger islemi basladi \n");
+        hareket_sayisi=rand()%20+3;
+
+        hareket_dizisi=(int *)calloc(hareket_sayisi,sizeof(int));
+
+        for(int i=0;i<hareket_sayisi;i++)
+        {
+
+            hareket_dizisi[i]=rand()%4;
+            printf("%d, ",hareket_dizisi[i]);
+        }
+
+        printf("\n\nrandom hareket diziniz yukaridadir,islemler basariyla gerceklesti\n\n");
+
+    }
+    else
+    {
+       printf("lutfen gecerli bir komut giriniz , 1 yada 0 tuslamadiniz !!! ERROR\n");
+       goto again;
+    }
+}
