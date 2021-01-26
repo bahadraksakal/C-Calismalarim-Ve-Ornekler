@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+// Bakiye: -sayi  // Bakiye: +sayi     okuyan ve hesaplayan program
+int toplambakiye=0;
+
+int main()
+{
+    FILE* dosya=fopen("bakiye.txt","r");
+    int len=0,i,j,m;
+    while(!feof(dosya))
+    {
+        fgetc(dosya);
+        len++;
+    }
+    char* metin=(char*)malloc(len*sizeof(char));
+    char kontrol1[10]="Bakiye: +";
+    char kontrol2[10]="Bakiye: -";
+    fseek(dosya,0,SEEK_SET);
+    len=0;
+    while(!feof(dosya))
+    {
+        metin[len]=fgetc(dosya);
+        len++;
+    }
+
+    fclose(dosya);
+
+    for(j=0;j<len;j++)
+    {
+        if(kontrol1[i]==metin[j])
+        {
+            i++;
+        }
+        else
+            i=0;
+
+        if(i==9)
+        {
+            int temp=0;
+            temp=atoi(metin+j);
+           // printf("temp= %d ----- j=%d\n",temp,j);atoi - + duyarlidir.
+            toplambakiye+=temp;
+            i=0;
+
+        }
+    }
+    //printf("toplambakiye + lar sonucu=%d\n",toplambakiye);
+
+    for(j=0;j<len;j++)
+    {
+        if(kontrol2[i]==metin[j])
+        {
+            i++;
+        }
+        else
+            i=0;
+
+        if(i==9)
+        {
+            int temp=0;
+            temp=atoi(metin+j);
+            //printf("-temp= %d ----- j=%d\n",temp,j);// - yide görücek
+            toplambakiye+=temp;
+            i=0;
+
+        }
+    }
+    printf("toplam bakiye= %d\n",toplambakiye);
+    free(metin);
+
+
+
+
+    return 0;
+}
