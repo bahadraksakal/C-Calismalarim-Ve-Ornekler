@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+/*
+ sifre: QALL GI NKQK
+ Sayilar: -36,-26,1,-59,-10,34,49,29,-37,4,39,-58
+ 'bosluklara bir islem uygulanmamistir'
+ cikti: GAME OF CODE
+ bu sifreyi cozen bir algoritma yaziniz.
+*/
+
+int main()
+{
+    char sifre[1001]="QALL GI NKQK";
+    char cozuldu[1001];
+    int anahtar[1000]={-36,-26,1,-59,-10,34,49,29,-37,4,39,-58},i;
+    for(i=0;i<strlen(sifre);i++)
+    {
+        if(sifre[i]!=32)
+        {
+            if(anahtar[i]<0)
+            {
+               // printf("%d\n",-abs(anahtar[i])%26);
+                cozuldu[i]=sifre[i]-abs(anahtar[i])%26;
+                if(!(cozuldu[i]<91 &&cozuldu[i]>64 || cozuldu[i]<123 &&cozuldu[i]>96 ))
+                    cozuldu[i]+=26;
+            }
+            else
+            {
+               // printf("+   %d\n",abs(anahtar[i])%26);
+                cozuldu[i]=sifre[i]+anahtar[i]%26;
+                if(!(cozuldu[i]<91 &&cozuldu[i]>64 || cozuldu[i]<123 &&cozuldu[i]>96 ))
+                    cozuldu[i]-=26;
+            }
+        }
+        else
+        {
+            cozuldu[i]=' ';
+            continue;
+        }
+
+    }
+    cozuldu[i]='\0';
+    puts(cozuldu);
+
+
+
+    return 0;
+}
