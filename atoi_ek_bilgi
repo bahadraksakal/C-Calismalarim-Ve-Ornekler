@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char metin[40]="-9800bahadir\nhahah123jjj888";  // atoi de okuma yapilirken char dizisinde once harfler sonra sayilar var ise  0 dondurur  once  sayi sonra harf var ise
+    //sayilar bitene kadar okur taki harf yada sayiolmayan bir karakter gorene kadar
+    int a=atoi(metin);
+    printf("%d",a);
+    return 0;
+}
