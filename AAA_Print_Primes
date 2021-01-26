@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Kendisine gönderilen bir sayinin basamaklari ile yazilabilecek tüm asal
+ sayilari ekrana küçükten büyüge dogru yazan bir fonksiyon tasarlayiniz.
+
+Örnek Ekran Çýktýsý:
+
+17 19 29 71 79 97 127 179 197 271 719 971 1279 1297 2179 2719 2791 2917 2971 7129 7219 9127 9721*/
+
+int main()
+{
+    char s_sayi[15+1];
+    int sayi,l,k,j,i,sayac=0,p=0;
+    start:
+    printf("bir sayi giriniz:\n");
+    gets(s_sayi);
+    for(int i=0;i<strlen(s_sayi);i++)
+    {
+        if(!(s_sayi[i]>47 && s_sayi[i]<58))
+        {
+           printf("lutfen sayi giriniz!!!\n");
+           goto start;
+
+        }
+
+    }
+
+    for(j=0;j<strlen(s_sayi);j++)
+    {
+        for(i=0;i<strlen(s_sayi)-1;i++)
+        {
+            if(s_sayi[i]<s_sayi[i+1] )
+            {
+                s_sayi[i]=s_sayi[i]^s_sayi[i+1];
+                s_sayi[i+1]=s_sayi[i]^s_sayi[i+1];
+                s_sayi[i]=s_sayi[i]^s_sayi[i+1];
+            }
+
+        }
+    }
+    sayi=atoi(s_sayi);
+    printf("max sayi=%d\n",sayi);
+    char* temp=(char*)calloc(strlen(s_sayi),sizeof(char));
+    int* kontrol_x=(int*)calloc(strlen(s_sayi),sizeof(int));
+
+
+
+    for(i=2;i<=sayi;i++)
+    {
+        for(j=2;j<i;j++)
+        {
+            if(i%j==0)
+                break;
+
+        }
+        for(int u=0;u<strlen(s_sayi);u++)
+            kontrol_x[u]=s_sayi[u];
+
+        if(j==i)
+        {
+            temp[0]='\0';
+            sprintf(temp,"%d%c",i,'\0');
+            for(l=0;l<strlen(temp);l++)
+            {
+                for(k=0;k<strlen(s_sayi);k++)
+                {
+                    if(kontrol_x[k]==0)
+                        continue;
+
+                    if(temp[l]==s_sayi[k])
+                    {
+                        kontrol_x[k]-=s_sayi[k];
+                        sayac++;
+                        break;
+                    }
+
+
+                }
+            }
+            if(sayac==0)
+                continue;
+            else if(sayac==strlen(temp))
+                printf("%d\n",i);
+
+
+            sayac=0;
+
+
+        }
+    }
+
+
+
+   return 0;
+}
+
