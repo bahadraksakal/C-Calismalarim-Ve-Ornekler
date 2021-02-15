@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*mucit alinin motosikletinin jant capi 38 dir . ve kurdugu duzenek ile her lastik
+turunda mikro islemciye bir sinyal gider. bu sinyallerin aralarinda
+gecen zamanini tespit etmistir.
+[0.04 , 0.05 , 0.08 , 0.2 , 0.0975 ];
+bu verilere göre mucitin motosaikletinin hýzýný herbir
+zaman degeri  km/h cinsinden bulunuz.
+PI=3,14 aliniz.
+*/
+
+int main()
+{
+    float dizi[5]={0.04 , 0.05 , 0.08 , 0.2 , 0.0975 };
+    int yaricap=19;
+    float PI=3.14;
+    float bir_tur_km=(2*PI*yaricap)/100000;
+    float gecen_zaman;
+    int ort_hiz,i=0;
+    while(i<5)
+    {
+        gecen_zaman=dizi[i]/(60*60);
+        i++;
+        ort_hiz=bir_tur_km/gecen_zaman;
+        printf(" %d km/s ,",ort_hiz);
+    }
+
+
+    return 0;
+}
