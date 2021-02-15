@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+
+int main()
+{
+    char s_sayi[10+1];
+    int sayi,i,j,k,basamak[10];
+
+    again:
+    printf("bir sayi griniz:\n");
+    scanf("%s",s_sayi);
+
+    for(i=0;i<strlen(s_sayi);i++)
+    {
+        if(s_sayi[i]=='0')
+        {
+            again_2:
+            printf("bu sayi bir Z sayisi degildir\nLutfen yeniden sayi giriniz\n\n");
+            goto again;
+        }
+    }
+
+    sayi=atoi(s_sayi);
+
+    for(j=1;pow(10,j)<sayi*10;j++)
+    {
+        i=pow(10,j);
+        k=pow(10,j-1);
+        basamak[j-1]= (sayi % i)/k;
+        if(sayi%(int)pow(basamak[j-1],2) == 0) // pow ile direk islem yapmak icin casting islemi yapmak lazim.// protoipi double dondurur.
+            continue;
+        else
+            goto again_2;
+
+
+    }
+    printf("%d sayisi bir Z sayisidir\n Tebriklerr!!!\n");
+    return 0;
+}
