@@ -1,4 +1,4 @@
-# Üniversite 1.Sinif-Güz Doneminde Yaptığımm Çalışmalar / with 'C'
+# Üniversite 1.Sinif-Güz Doneminde Yaptığım Çalışmalar / with 'C'
 
 @Bursa Teknik Üniversitesi / Bilgisayar Mühendisliği
 
